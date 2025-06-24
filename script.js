@@ -42,14 +42,14 @@ function criarCartas(){
         let carta1, carta2;
         if(quantidadeDeCartas==5){
             carta1 = 
-                `<div class="cartas" data-nome="${pokemons1[i]}" onclick="virarCarta(this)">
+                `<div class="cartas" data-nome="${pokemons1[i]} onclick=\"virarCarta(this)\"">
                     <div class="carta-flipper">
                     <div class="carta-frente">${pokemons1[i]}</div>
                         <div class="carta-verso">?</div>
                     </div>
                 </div>;`
             carta2 = 
-                `<div class="cartas" data-nome="${pokemons1[i]}" onclick="virarCarta(this)">
+                `<div class="cartas" data-nome="${pokemons1[i]} onclick=\"virarCarta(this)\"">
                     <div class="carta-flipper">
                     <div class="carta-frente">${pokemons1[i]}</div>
                         <div class="carta-verso">?</div>
@@ -58,14 +58,14 @@ function criarCartas(){
         }
         else if(quantidadeDeCartas==10){
             carta1 = 
-                `<div class="cartas" data-nome="${pokemons2[i]}" onclick="virarCarta(this)">
+                `<div class="cartas" data-nome="${pokemons2[i]} onclick=\"virarCarta(this)\"">
                     <div class="carta-flipper">
                     <div class="carta-frente">${pokemons2[i]}</div>
                         <div class="carta-verso">?</div>
                     </div>
                 </div>;`
             carta2 = 
-                `<div class="cartas" data-nome="${pokemons2[i]}" onclick="virarCarta(this)">
+                `<div class="cartas" data-nome="${pokemons2[i]} onclick=\"virarCarta(this)\"">
                     <div class="carta-flipper">
                     <div class="carta-frente">${pokemons2[i]}</div>
                         <div class="carta-verso">?</div>
@@ -74,14 +74,14 @@ function criarCartas(){
         }
         else if(quantidadeDeCartas==20){
             carta1 = 
-                `<div class="cartas" data-nome="${pokemons3[i]}" onclick="virarCarta(this)">
+                `<div class="cartas" data-nome="${pokemons3[i]} onclick=\"virarCarta(this)\"">
                     <div class="carta-flipper">
                     <div class="carta-frente">${pokemons3[i]}</div>
                         <div class="carta-verso">?</div>
                     </div>
                 </div>;`
             carta2 = 
-                `<div class="cartas" data-nome="${pokemons3[i]}" onclick="virarCarta(this)">
+                `<div class="cartas" data-nome="${pokemons3[i]} onclick=\"virarCarta(this)\"">
                     <div class="carta-flipper">
                     <div class="carta-frente">${pokemons3[i]}</div>
                         <div class="carta-verso">?</div>
