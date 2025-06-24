@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOGO DA MEMÓRIA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="cabecalho">
+      <h1>BEM VINDO AO JOGO DA MEMÓRIA</h1>
+       <img src=""  class="logo">
+    </header>
+    <article class="apresentacao">
+        <h2 class="identacao">Seja bem vindo ao jogo da memoria de pokemon feito pelo Leandro</h2>
+        <h2 class="identacao">Escolha duas cartas e tente encontrar todos os pares do jogo</h2>
+        <div class="menu">
+            <div class="modo">
+                <h2>Escolha o modo de jogo:</h2>
+                <div class="escolha" onclick="modo(1)">
+                    <p>NORMAL</p>
+                </div>
+                <div class="escolha" onclick="modo(2)">
+                    <p>VIDAS</p>
+                </div>
+                <div class="escolha" onclick="modo(3)">
+                    <p>TEMPO</p>
+                </div>
+            </div>
+            <div class="quantidade">
+                <h2>Escolha quantas cartas:</h2>
+                <div class="escolha" onclick="quantidade(1)">
+                    <p>5 PARES</p>
+                </div>
+                <div class="escolha" onclick="quantidade(2)">
+                    <p>10 PARES</p>
+                </div>
+                <div class="escolha" onclick="quantidade(3)">
+                    <p>20 PARES</p>
+                </div>
+            </div>
+            <span id="aviso"></span>
+        </div>
+    </article>
+    <section class="jogo">
+        <button onclick="criarCartas()">Criar Cartas</button>
+        <button onclick="jogar()">Jogar</button>
+        <div class="cartaslobby">
+                
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
