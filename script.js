@@ -42,51 +42,51 @@ function criarCartas(){
         let carta1, carta2;
         if(quantidadeDeCartas==5){
             carta1 = 
-                `<div class="cartas" data-nome="${pokemons1[i]} onclick=\"virarCarta(this)\"">
+                `<div class="cartas" data-nome="${pokemons1[i]}" onclick="virarCarta(this)">
                     <div class="carta-flipper">
                     <div class="carta-frente">${pokemons1[i]}</div>
                         <div class="carta-verso">?</div>
                     </div>
-                </div>;`
+                </div>`
             carta2 = 
-                `<div class="cartas" data-nome="${pokemons1[i]} onclick=\"virarCarta(this)\"">
+                `<div class="cartas" data-nome="${pokemons1[i]}" onclick="virarCarta(this)">
                     <div class="carta-flipper">
                     <div class="carta-frente">${pokemons1[i]}</div>
                         <div class="carta-verso">?</div>
                     </div>
-                </div>;`
+                </div>`
         }
         else if(quantidadeDeCartas==10){
             carta1 = 
-                `<div class="cartas" data-nome="${pokemons2[i]} onclick=\"virarCarta(this)\"">
+                `<div class="cartas" data-nome="${pokemons2[i]}" onclick="virarCarta(this)">
                     <div class="carta-flipper">
                     <div class="carta-frente">${pokemons2[i]}</div>
                         <div class="carta-verso">?</div>
                     </div>
-                </div>;`
+                </div>`
             carta2 = 
-                `<div class="cartas" data-nome="${pokemons2[i]} onclick=\"virarCarta(this)\"">
+                `<div class="cartas" data-nome="${pokemons2[i]}" onclick="virarCarta(this)">
                     <div class="carta-flipper">
                     <div class="carta-frente">${pokemons2[i]}</div>
                         <div class="carta-verso">?</div>
                     </div>
-                </div>;`
+                </div>`
         }
         else if(quantidadeDeCartas==20){
             carta1 = 
-                `<div class="cartas" data-nome="${pokemons3[i]} onclick=\"virarCarta(this)\"">
+                `<div class="cartas" data-nome="${pokemons3[i]}" onclick="virarCarta(this)">
                     <div class="carta-flipper">
                     <div class="carta-frente">${pokemons3[i]}</div>
                         <div class="carta-verso">?</div>
                     </div>
-                </div>;`
+                </div>`
             carta2 = 
-                `<div class="cartas" data-nome="${pokemons3[i]} onclick=\"virarCarta(this)\"">
+                `<div class="cartas" data-nome="${pokemons3[i]}" onclick="virarCarta(this)">
                     <div class="carta-flipper">
                     <div class="carta-frente">${pokemons3[i]}</div>
                         <div class="carta-verso">?</div>
                     </div>
-                </div>;`
+                </div>`
         }
         lobby.innerHTML += carta1 + carta2;
     }
@@ -107,7 +107,6 @@ function virarCarta(carta){
 function clicou(e){
     let carta = e.currentTarget
     if(cartasViradas.length < 2 && !carta.classList.contains("virada")){
-        carta.classList.add("virada")
         cartasViradas.push(carta)
         if(cartasViradas.length == 2){
             let carta1 = cartasViradas[0].dataset.nome
@@ -115,10 +114,9 @@ function clicou(e){
             if(carta1 === carta2){
                 console.log("Achou um par")
                 cartasViradas.forEach(carta =>{
-                    carta.classList.remove("virada")
                     carta.classList.add("encontrada")
-                    carta.removeEventListener("click", clicou)
                     carta.setAttribute("onclick", "")
+                    carta.removeEventListener("click", clicou)
                     cartasViradas = []
                 })
             }
@@ -126,8 +124,7 @@ function clicou(e){
                 console.log("Não achou o par")
                 setTimeout(() => {
                     cartasViradas.forEach(carta =>{
-                        carta.classList.remove("virada")
-                        cartasViradas = []
+                        virarCarta(carta)
                     })
                     cartasViradas = []
                 }, 1000)
@@ -135,16 +132,17 @@ function clicou(e){
         }
     }
 }
-function jogar(){
-    let cartas = Array.from(document.querySelectorAll(".cartas"))   
-    for(let i=0; i<cartas.length; i++){
-        virarCarta(cartas[i])
-    }
-    let cartasEmbaralhadas = embaralhar(cartas)
-    lobby.innerHTML=""
-    cartasEmbaralhadas.forEach(carta => {
-        lobby.appendChild(carta)
-        carta.addEventListener("click", clicou)
+function jogar() {
+    let cartas = Array.from(document.querySelectorAll(".cartas"));
+    cartas.forEach(carta => {
+        carta.classList.remove("encontrada");
+        virarCarta(carta)
     });
-
+    let cartasEmbaralhadas = embaralhar(cartas);
+    lobby.innerHTML = "";
+    cartasEmbaralhadas.forEach(carta => {
+        lobby.appendChild(carta);
+        carta.addEventListener("click", clicou);
+    });
+    cartasViradas = [];
 }
