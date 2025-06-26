@@ -1,8 +1,9 @@
 let modoDeJogo;
 let quantidadeDeCartas;
-let lobby = document.querySelector(".cartaslobby");
+let lobby = document.querySelector("#cartaslobby");
 let aviso = document.getElementById("aviso");
 let cartasViradas = []
+let imagens = ["images/pikachu.png", "images/bulbassaur.png", "images/charmander.png", "images/squirtle.png", "images/cartepie.png", "images/weedle.png", "images/pidgey.png", "images/rattata.png", "images/sandshrew.png", "images/butterfree.png", "images/clefairy.png", "images/vulpix.png", "images/jigglypuff.png", "images/zubat.png", "images/oddish.png", "images/paras.png", "images/venonat.png", "images/diglett.png", "images/meowth.png", "images/psyduck.png"]
 let pokemons1 = ["Pikachu", "Bulbasaur", "Charmander", "Squirtle", "Caterpie"];
 let pokemons2 = ["Pikachu", "Bulbasaur", "Charmander", "Squirtle", "Caterpie", "Weedle", "Pidgey", "Rattata", "Sandshrew", "ButterFree"];
 let pokemons3 = ["Pikachu", "Bulbasaur", "Charmander", "Squirtle", "Caterpie", "Weedle", "Pidgey", "Rattata", "Sandshrew", "ButterFree", "Clefairy", "Vulpix", "Jigglypuff", "Zubat", "Oddish", "Paras", "Venonat", "Diglett", "Meowth", "Psyduck"];
@@ -33,6 +34,7 @@ function quantidade(y){
 function criarCartas(){
     if (!modoDeJogo || !quantidadeDeCartas) {
         aviso.textContent = "Escolha o modo de jogo e a quantidade de cartas!";
+        setTimeout(()=>{aviso.style.display="none"}, 2000)
         return;
     }
 
@@ -44,14 +46,14 @@ function criarCartas(){
             carta1 = 
                 `<div class="cartas" data-nome="${pokemons1[i]}" onclick="virarCarta(this)">
                     <div class="carta-flipper">
-                    <div class="carta-frente">${pokemons1[i]}</div>
+                    <div class="carta-frente"><img src="${imagens[i]}"></div>
                         <div class="carta-verso">?</div>
                     </div>
                 </div>`
             carta2 = 
                 `<div class="cartas" data-nome="${pokemons1[i]}" onclick="virarCarta(this)">
                     <div class="carta-flipper">
-                    <div class="carta-frente">${pokemons1[i]}</div>
+                    <div class="carta-frente"><img src="${imagens[i]}"></div>
                         <div class="carta-verso">?</div>
                     </div>
                 </div>`
@@ -60,14 +62,14 @@ function criarCartas(){
             carta1 = 
                 `<div class="cartas" data-nome="${pokemons2[i]}" onclick="virarCarta(this)">
                     <div class="carta-flipper">
-                    <div class="carta-frente">${pokemons2[i]}</div>
+                    <div class="carta-frente"><img src="${imagens[i]}"></div>
                         <div class="carta-verso">?</div>
                     </div>
                 </div>`
             carta2 = 
                 `<div class="cartas" data-nome="${pokemons2[i]}" onclick="virarCarta(this)">
                     <div class="carta-flipper">
-                    <div class="carta-frente">${pokemons2[i]}</div>
+                    <div class="carta-frente"><img src="${imagens[i]}"></div>
                         <div class="carta-verso">?</div>
                     </div>
                 </div>`
@@ -76,14 +78,14 @@ function criarCartas(){
             carta1 = 
                 `<div class="cartas" data-nome="${pokemons3[i]}" onclick="virarCarta(this)">
                     <div class="carta-flipper">
-                    <div class="carta-frente">${pokemons3[i]}</div>
+                    <div class="carta-frente"><img src="${imagens[i]}"></div>
                         <div class="carta-verso">?</div>
                     </div>
                 </div>`
             carta2 = 
                 `<div class="cartas" data-nome="${pokemons3[i]}" onclick="virarCarta(this)">
                     <div class="carta-flipper">
-                    <div class="carta-frente">${pokemons3[i]}</div>
+                    <div class="carta-frente"><img src="${imagens[i]}"></div>
                         <div class="carta-verso">?</div>
                     </div>
                 </div>`

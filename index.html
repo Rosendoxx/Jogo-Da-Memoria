@@ -8,12 +8,10 @@
 </head>
 <body>
     <header class="cabecalho">
-      <h1>BEM VINDO AO JOGO DA MEMÓRIA</h1>
-       <img src=""  class="logo">
+        <img src="images/logo.png"  class="logo"> <br>
+        <img src="images/jogo.png" class="logo">
     </header>
     <article class="apresentacao">
-        <h2 class="identacao">Seja bem vindo ao jogo da memoria de pokemon feito pelo Leandro</h2>
-        <h2 class="identacao">Escolha duas cartas e tente encontrar todos os pares do jogo</h2>
         <div class="menu">
             <div class="modo">
                 <h2>Escolha o modo de jogo:</h2>
@@ -43,9 +41,9 @@
         </div>
     </article>
     <section class="jogo">
-        <button onclick="criarCartas()">Criar Cartas</button>
+        <a href="#cartaslobby"><button onclick="criarCartas()">Criar Cartas</button></a>
         <button onclick="jogar()">Jogar</button>
-        <div class="cartaslobby">
+        <div id="cartaslobby">
                 
         </div>
     </section>
