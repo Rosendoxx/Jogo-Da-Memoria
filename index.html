@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOGO DA MEMÓRIA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <img src="images/logo.png"  class="logo"> <br>
+        <img src="images/jogo.png" class="logo">
+    </header>
+    <article class="apresentacao">
+        <div class="menu">
+            <div class="modo">
+                <h2>Escolha o modo de jogo:</h2>
+                <div class="escolha" onclick="modo(1)">
+                    <p>NORMAL</p>
+                </div>
+                <div class="escolha" onclick="modo(2)">
+                    <p>VIDAS</p>
+                </div>
+                <div class="escolha" onclick="modo(3)">
+                    <p>TEMPO</p>
+                </div>
+            </div>
+            <div class="quantidade">
+                <h2>Escolha quantas cartas:</h2>
+                <div class="escolha" onclick="quantidade(1)">
+                    <p>5 PARES</p>
+                </div>
+                <div class="escolha" onclick="quantidade(2)">
+                    <p>10 PARES</p>
+                </div>
+                <div class="escolha" onclick="quantidade(3)">
+                    <p>20 PARES</p>
+                </div>
+            </div>
+            <span id="aviso"></span>
+        </div>
+    </article>
+    <section class="jogo">
+        <a href="#cartaslobby"><button onclick="criarCartas()">Criar Cartas</button></a>
+        <button onclick="jogar()">Jogar</button>
+        <div id="cartaslobby">
+                
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
