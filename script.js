@@ -114,7 +114,6 @@ function clicou(e){
             let carta1 = cartasViradas[0].dataset.nome
             let carta2 = cartasViradas[1].dataset.nome
             if(carta1 === carta2){
-                console.log("Achou um par")
                 cartasViradas.forEach(carta =>{
                     carta.classList.add("encontrada")
                     carta.setAttribute("onclick", "")
@@ -123,10 +122,11 @@ function clicou(e){
                 })
             }
             else{
-                console.log("Não achou o par")
+                cartasViradas.forEach(carta =>{if(carta.classList.contains("errada")){carta.classList.remove("errada")}})
                 setTimeout(() => {
                     cartasViradas.forEach(carta =>{
                         virarCarta(carta)
+                        carta.classList.add("errada")
                     })
                     cartasViradas = []
                 }, 1000)
