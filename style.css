@@ -73,6 +73,7 @@ button:active {
     background-color: var(--themecolor);
     width: 100%;
     height: 4em;
+    display: flex;
 }
 #cartaslobby {
     display: flex;
@@ -81,6 +82,7 @@ button:active {
     background-color: var(--themecolor);
     gap: 10px;
     padding: 1em;
+    margin: 1em;
 }
  .cartas {
     width: 7em;
@@ -132,4 +134,20 @@ button:active {
 img{
     width: 6em;
     height: 6em;
+}
+#aviso, #contador{
+    color: var(--fontcolor);
+    font-weight: bold;
+    font-size: xx-large;
+}
+#vidas{
+    display: flex;
+    flex-direction: column;
+    align-self:flex-start;
+    margin-left: 1em;
+}
+.coracoes{
+    width: 1em;
+    height: auto;
+    margin: 0.5em;
 }
