@@ -1,3 +1,6 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
 :root{
     --themecolor: #4abdac;
     --2ndcolor: #fc4a1a;
@@ -11,10 +14,66 @@
     50% { transform: translateX(5px); }
     75% { transform: translateX(-5px); }
 }
+@media (max-width: 768px) {
+    .modo, .quantidade {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .escolha {
+        width: 80%;
+        margin: 1em 0;
+    }
+
+    .cartas {
+        width: 6em;
+        height: 7em;
+        margin: 0.5em;
+    }
+
+    img {
+        width: 5em;
+        height: 5em;
+    }
+
+    button {
+        font-size: 1.2em;
+        margin: 0.5em;
+    }
+
+    .jogo {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
+    #vidas {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 1em 0;
+    }
+
+    .temporizador {
+        margin: 1em 0;
+        text-align: center;
+    }
+    .apresentacao {
+        font-size: 1.2em;
+    }
+}
+
 body{
     margin: 0;
     background-color: var(--themecolor);
     text-align: center;
+}
+#mensagem{
+    margin: auto;
+    font-size: small;
+    font-weight: bold;
+    color: var(--fontcolor);
+    margin-bottom: 0.5em;
 }
 button{
     font-size: 1.5em;
@@ -56,10 +115,15 @@ button:active {
     color: #000;
     width: 7em;
     margin: 2em;
+    padding: 0.5em;
     font-weight: bold;
     text-align: center;
     border-radius: 1em;
     border: 2px solid #000;
+}
+.escolha.desativado{
+    pointer-events: none;
+    opacity: 0.8;
 }
 .escolha:hover{
     background-color: var(--greatColorVariant);
@@ -147,7 +211,13 @@ img{
     margin-left: 1em;
 }
 .coracoes{
-    width: 1em;
+    width: 1.5em;
     height: auto;
     margin: 0.5em;
+}
+.temporizador{
+    color: var(--fontcolor);
+    font-size: xx-large;
+    font-weight: bold;
+    margin-left: 1em;
 }

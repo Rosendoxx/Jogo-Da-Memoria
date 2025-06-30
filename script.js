@@ -1,7 +1,11 @@
 let modoDeJogo
 let quantidadeDeCartas
 let vidas
+let minutos, segundos, intervalo
 let vidasHUD = document.getElementById("vidas")
+let tempoHUD = document.getElementById("tempo")
+let temporizador = document.querySelector(".temporizador")
+let escolhas = document.querySelectorAll(".escolha")
 let lobby = document.querySelector("#cartaslobby")
 let aviso = document.getElementById("aviso")
 let cartasViradas = []
@@ -26,14 +30,20 @@ function quantidade(y){
     if(y==1){
         quantidadeDeCartas=5
         vidas=7
+        minutos=0
+        segundos=31
     }
     if(y==2){
         quantidadeDeCartas=10
         vidas=13
+        minutos=1
+        segundos=31
     }
     if(y==3){
         quantidadeDeCartas=20
         vidas=15
+        minutos=3
+        segundos=1
     }
     return quantidadeDeCartas
 }
@@ -130,6 +140,8 @@ function clicou(e){
                 if(encontradas.length===(quantidadeDeCartas*2)){
                     aviso.textContent = "Parabéns, você capturou todos os pokémons"
                     aviso.style.display = "block"
+                    clearInterval(intervalo)
+                    escolhas.forEach(botoes =>{botoes.classList.remove("desativado")})
                     setTimeout(() => {
                         aviso.style.display="none"
                     },6000)
@@ -144,21 +156,50 @@ function clicou(e){
                     })
                     cartasViradas = []
                 }, 1000)
-                --vidas
                 let coracoesDOM = vidasHUD.querySelectorAll(".coracoes")
-                if(vidas>0){coracoesDOM[coracoesDOM.length - 1].remove()}
-                if(vidas==0){
-                    aviso.textContent="Suas vidas acabaram"
-                    aviso.style.display="block"
-                    let cartas = Array.from(document.querySelectorAll(".cartas"))
-                    cartas.forEach(carta => {
-                        carta.removeEventListener("click", clicou)
-                    })
-                    setTimeout(() => {aviso.style.display="none"}, 6000)
-                }
+                if(coracoesDOM.length >= 0){coracoesDOM[coracoesDOM.length - 1].remove()}
             }
         }
     }
+    if(coracoesDOM.length==0){
+        aviso.textContent="Suas vidas acabaram"
+        aviso.style.display="block"
+        let cartas = Array.from(document.querySelectorAll(".cartas"))
+        cartas.forEach(carta => {
+            carta.removeEventListener("click", clicou)
+        })
+        setTimeout(() => {aviso.style.display="none"}, 6000)
+    }
+}
+function tempo(x){
+    if (segundos == 0) {
+        if (minutos == 0) {
+            clearInterval(intervalo)
+            aviso.textContent = "Tempo esgotado!"
+            aviso.style.display = "block"
+            setTimeout(() =>{
+            aviso.style.display = "none"
+            tempoHUD.style.display = "none"
+            }, 10000)
+            let cartas = Array.from(document.querySelectorAll(".cartas"))
+            cartas.forEach(carta => {
+                carta.setAttribute("onclick", "")
+                carta.removeEventListener("click", clicou)
+                carta.classList.remove("virada")
+                return
+            })
+            escolhas.forEach(botoes =>{botoes.classList.remove("desativado")})
+            return
+        } else {
+            minutos--
+            segundos = 59
+        }
+    } else {
+        segundos--
+    }
+    let minStr = minutos < 10 ? "0" + minutos : minutos
+    let segStr = segundos < 10 ? "0" + segundos : segundos
+    x.innerHTML = `<div class="temporizador"><p>${minStr}:${segStr}</p></div>`
 }
 function jogar() {
     if(modoDeJogo==="com vidas"){
@@ -171,10 +212,14 @@ function jogar() {
         }
     }
     else if(modoDeJogo==="com tempo"){
+        escolhas.forEach(botoes => {
+            botoes.classList.add("desativado")
+        })
         let tempoHUD = document.getElementById("tempo")
-        tempoHUD.innerHTML=`
-        
-        `
+        tempoHUD.innerHTML= ""
+        tempo(tempoHUD)
+        clearInterval(intervalo)
+        setTimeout(() =>{intervalo = setInterval(() => tempo(tempoHUD), 1000)}, 1000)
     }
     let cartas = Array.from(document.querySelectorAll(".cartas"))
     cartas.forEach(carta => {
