@@ -53,13 +53,10 @@ Pensado para oferecer uma ótima experiência tanto em **dispositivos móveis** 
 - Fácil expansão para adicionar mais níveis ou temas
 - Ideal como portfólio para desenvolvedores iniciantes ou em transição de carreira
 
-## 🖼️ Screenshots
-
-<img src="images/preview.png" alt="Jogo da Memória Pokémon" width="600">
 
 ## 🚀 Como executar
 
-1. Acesse o link 
+1. Acesse o link https://rosendoxx.github.io/Jogo-Da-Memoria/#cartaslobby
 
 ✅ Não é necessário nenhum servidor ou instalação adicional.
 
@@ -72,7 +69,6 @@ Criar um placar de recordes
 
 Adicionar mais temas além de Pokémon
 
-👨‍💻 Autor
 Feito com dedicação por Leandro Tavares.
 Entre em contato ou veja mais projetos no meu GitHub.
 
