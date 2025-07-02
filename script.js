@@ -204,6 +204,7 @@ function tempo(x){
 function jogar() {
     if(modoDeJogo==="com vidas"){
         vidasHUD.innerHTML = ""
+        tempoHUD.innerHTML = ""
         for(let i=0; i<vidas; i++){
             let coracao = document.createElement("img")
             coracao.classList.add("coracoes")
@@ -212,6 +213,7 @@ function jogar() {
         }
     }
     else if(modoDeJogo==="com tempo"){
+        vidasHUD.innerHTML = ""
         escolhas.forEach(botoes => {
             botoes.classList.add("desativado")
         })
